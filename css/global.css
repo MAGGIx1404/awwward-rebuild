@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap");
+
+* {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::after,
+::before {
+  box-sizing: border-box;
+  transition: all 0.5s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+a,
+button,
+input {
+  position: relative;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  color: var(--black-color);
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1em;
+}
+pre {
+  white-space: pre-wrap;
+}
+q {
+  quotes: "\201C""\201D""\2018""\2019";
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 0;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --cursive-font: "Courgette", cursive;
+  --robo-font: "Roboto Slab", serif;
+  --h1-font: 10rem;
+  --h2-font: 8rem;
+  --h3-font: 6rem;
+  --h4-font: 4rem;
+  --h5-font: 3rem;
+  --h6-font: 2rem;
+  --a-font: 1.2rem;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --theme-color: #c90000;
+  --light-dark-color: #1d1d1d;
+}
+
+body {
+  font-size: 1rem;
+  overflow-x: hidden;
+  font-feature-settings: "kern" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-kerning: normal;
+  font-kerning: normal;
+  overscroll-behavior: none;
+  /* font-family: 'Courgette', cursive; */
+  font-family: "Poppins", sans-serif;
+}
+
+/* classes */
+
+.container {
+  max-width: 1300px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section {
+  width: 100%;
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.curs {
+  font-family: "Courgette", cursive;
+}
+
+.robo {
+  font-family: "Roboto Slab", serif;
+}

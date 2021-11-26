@@ -1,0 +1,616 @@
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap");
+
+* {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::after,
+::before {
+  box-sizing: border-box;
+  transition: all 0.5s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+a,
+button,
+input {
+  position: relative;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  color: var(--black-color);
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1em;
+}
+pre {
+  white-space: pre-wrap;
+}
+q {
+  quotes: "\201C""\201D""\2018""\2019";
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 0;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --cursive-font: "Courgette", cursive;
+  --robo-font: "Roboto Slab", serif;
+  --h1-font: 10rem;
+  --h2-font: 8rem;
+  --h3-font: 6rem;
+  --h4-font: 4rem;
+  --h5-font: 3rem;
+  --h6-font: 2rem;
+  --a-font: 1.2rem;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --theme-color: #c90000;
+  --light-dark-color: #1d1d1d;
+}
+
+body {
+  font-size: 1rem;
+  overflow-x: hidden;
+  font-feature-settings: "kern" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-kerning: normal;
+  font-kerning: normal;
+  overscroll-behavior: none;
+  /* font-family: 'Courgette', cursive; */
+  font-family: "Poppins", sans-serif;
+}
+
+/* classes */
+
+.container {
+  max-width: 1300px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section {
+  width: 100%;
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.curs {
+  font-family: "Courgette", cursive;
+}
+
+.robo {
+  font-family: "Roboto Slab", serif;
+}
+
+/* nav */
+
+body {
+  color: var(--white-color);
+  background-color: var(--light-dark-color);
+  transition: background 0.5s ease;
+}
+
+.laoding .wrapper {
+  opacity: 0;
+}
+
+.loaded .wrapper {
+  height: 100%;
+  width: 100%;
+  will-change: background;
+  opacity: 1;
+  transition: opacity 0.5s ease, background 0.5s ease-in-out;
+}
+
+a {
+  color: var(--white-color);
+}
+
+.nav {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 1.5rem 0;
+  background-color: var(--light-dark-color);
+  transition: transform 0.5s ease, background 0.5s ease-in-out;
+}
+
+nav[data-direction="down"] {
+  transform: translate3d(0, -100%, 0);
+}
+
+.nav .inner__nav {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.nav .inner__nav .logo {
+  font-size: var(--h6-font);
+  font-weight: bold;
+  color: var(--theme-color);
+  letter-spacing: 1px;
+}
+
+.nav .inner__nav .nav__links {
+  width: fit-content;
+}
+
+.nav .inner__nav .nav__links a {
+  padding: 0.5rem 1.2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.nav .inner__nav .nav__links a:hover {
+  color: var(--theme-color);
+}
+
+.nav .inner__nav .nav__links a::after {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  background-color: var(--theme-color);
+  content: "";
+  bottom: 0;
+  left: 0;
+  transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.nav .inner__nav .nav__links a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+/* webgl menu */
+
+.menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  counter-reset: menucounter;
+  padding: 10rem 0;
+}
+
+.menu .title_box {
+  text-align: center;
+}
+
+.menu h1 {
+  font-size: var(--h5-font);
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--theme-color);
+}
+
+.menu__item {
+  flex: none;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  padding: 10vh 10vw;
+}
+
+.menu__item:nth-of-type(1) {
+  margin-top: 2rem;
+}
+
+.menu__item::before {
+  counter-increment: menucounter;
+  content: counters(menucounter, ".", decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  color: var(--white-color);
+  border-left: 3px solid currentColor;
+  top: 20%;
+  height: 60%;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateX(-1rem);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.menu__item:hover::before {
+  color: var(--theme-color);
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.menu__item-text {
+  position: relative;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: block;
+  overflow: hidden;
+  font-size: 6vw;
+}
+
+.menu__item-textinner {
+  display: block;
+  font-size: var(--h2-font);
+  font-family: var(--robo-font);
+  font-weight: bold;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  color: var(--white-color);
+  transition: all 0.5s ease;
+}
+
+.menu__item:hover .menu__item-textinner {
+  color: var(--theme-color);
+}
+
+.menu__item-sub {
+  display: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  white-space: nowrap;
+  align-items: center;
+  position: relative;
+  margin-left: 2rem;
+  padding-left: 3rem;
+  color: var(--white-color);
+  opacity: 0;
+  transform: translateX(-1rem);
+  transition: transform 0.3s, opacity 0.3s;
+  mix-blend-mode: difference;
+}
+
+.menu__item:hover .menu__item-sub {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.menu__item-sub::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15%;
+  width: 1px;
+  height: 70%;
+  background: currentColor;
+  transform-origin: 0 100%;
+  transform: rotate(22.5deg) scale3d(1, 0, 1);
+  transition: transform 0.3s;
+}
+
+.menu__item:hover .menu__item-sub::before {
+  transform: rotate(22.5deg) scale3d(1, 1, 1);
+}
+
+.hover-reveal {
+  position: absolute;
+  z-index: -1;
+  width: 50rem;
+  height: 30rem;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  overflow: hidden;
+  will-change: transform, filter;
+}
+
+.hover-reveal__inner {
+  overflow: hidden;
+}
+
+.hover-reveal__inner,
+.hover-reveal__img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hover-reveal__img {
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+@media screen and (min-width: 53em) {
+  .menu__item {
+    padding-left: 25vw;
+    justify-content: initial;
+  }
+  .menu__item-text {
+    padding: 1vh 0;
+    font-size: 4vw;
+  }
+  .menu__item-sub {
+    display: flex;
+  }
+}
+
+/* footer */
+
+footer {
+  width: 100%;
+  height: auto;
+  padding: 5rem 0;
+}
+
+footer .container {
+  width: 100%;
+  height: 100%;
+}
+
+footer .container a {
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0.4rem 0.4rem;
+}
+
+footer .container p {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+footer .container a:hover {
+  color: var(--theme-color);
+}
+
+footer .container a::after {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  background-color: var(--theme-color);
+  content: "";
+  bottom: 0;
+  left: 0;
+  transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+footer .container a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+/* locomotivve */
+
+/*! locomotive-scroll v4.1.2 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+html.has-scroll-dragging {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.has-scroll-smooth body {
+  overflow: hidden;
+}
+.has-scroll-smooth [data-scroll-container] {
+  min-height: 100vh;
+}
+[data-scroll-direction="horizontal"] [data-scroll-container] {
+  height: 100vh;
+  display: inline-block;
+  white-space: nowrap;
+}
+[data-scroll-direction="horizontal"] [data-scroll-section] {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  height: 100%;
+}
+.c-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 11px;
+  height: 100%;
+  transform-origin: center right;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+.c-scrollbar:hover {
+  transform: scaleX(1.45);
+}
+.c-scrollbar:hover,
+.has-scroll-dragging .c-scrollbar,
+.has-scroll-scrolling .c-scrollbar {
+  opacity: 1;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar {
+  width: 100%;
+  height: 10px;
+  top: auto;
+  bottom: 0;
+  transform: scaleY(1);
+}
+[data-scroll-direction="horizontal"] .c-scrollbar:hover {
+  transform: scaleY(1.3);
+}
+.c-scrollbar_thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0.5;
+  width: 7px;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.has-scroll-dragging .c-scrollbar_thumb {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+[data-scroll-direction="horizontal"] .c-scrollbar_thumb {
+  right: auto;
+  bottom: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+/*# sourceMappingURL=/style.78032849.css.map */
