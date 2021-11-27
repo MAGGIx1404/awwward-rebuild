@@ -1,0 +1,11 @@
+@import url(./global.css);
+@import url(./nav.css);
+
+a {
+  color: var(--white-color);
+}
+
+body {
+  background-color: var(--light-dark-color);
+  color: var(--white-color);
+}

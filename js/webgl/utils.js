@@ -25,5 +25,17 @@ const getMousePos = (e) => {
 // Generate a random float.
 const getRandomFloat = (min, max) =>
   (Math.random() * (max - min) + min).toFixed(2);
+const imagesLoaded = require("imagesloaded");
 
-export { map, lerp, clamp, getMousePos, getRandomFloat };
+// Preload images
+const preloadImages = (selector = "img") => {
+  return new Promise((resolve) => {
+    imagesLoaded(
+      document.querySelectorAll(selector),
+      { background: true },
+      resolve
+    );
+  });
+};
+
+export { map, lerp, clamp, getMousePos, getRandomFloat, preloadImages };

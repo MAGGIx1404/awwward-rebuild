@@ -17,10 +17,10 @@ export default class Menu {
       tx: { previous: 0, current: 0, amt: 0.08 },
       // translationY
       ty: { previous: 0, current: 0, amt: 0.08 },
-      // skew value
-      skew: { previous: 0, current: 0, amt: 0.04 },
-      // CSS filter (contrast) value
-      contrast: { previous: 1, current: 1, amt: 0.08 },
+      // Rotation angle
+      rotation: { previous: 0, current: 0, amt: 0.04 },
+      // CSS filter (brightness) value
+      brightness: { previous: 1, current: 1, amt: 0.08 },
     };
     // array of MenuItem instances
     this.menuItems = [];

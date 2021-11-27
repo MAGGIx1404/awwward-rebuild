@@ -38,9 +38,10 @@ export default class MenuItem {
   //   </div>
   // </div>
   layout() {
-    // this is the element that gets its position animated (and perhaps other properties like the skew etc..)
+    // this is the element that gets its position animated (and perhaps other properties like the rotation etc..)
     this.DOM.reveal = document.createElement("div");
     this.DOM.reveal.className = "hover-reveal";
+    this.DOM.reveal.style.transformOrigin = "0% 0%";
     // the next two elements could actually be only one, the image element
     // adding an extra wrapper (revealInner) around the image element with overflow hidden, gives us the possibility to scale the image inside
     this.DOM.revealInner = document.createElement("div");
@@ -98,11 +99,10 @@ export default class MenuItem {
         },
       })
       // animate the image wrap
-      .to(this.DOM.revealInner, 0.8, {
+      .to(this.DOM.revealInner, 1.2, {
         ease: "Expo.easeOut",
-        startAt: { scaleX: 0, filter: "contrast(10)" },
-        scaleX: 1,
-        filter: "contrast(1)",
+        startAt: { scale: 0.3 },
+        scale: 1,
       })
       // animate the image element
       .to(
@@ -110,8 +110,8 @@ export default class MenuItem {
         1.2,
         {
           ease: "Expo.easeOut",
-          startAt: { scaleX: 2 },
-          scaleX: 1,
+          startAt: { scale: 1.7 },
+          scale: 1,
         },
         0
       );
@@ -131,17 +131,17 @@ export default class MenuItem {
           gsap.set(this.DOM.reveal, { opacity: 0 });
         },
       })
-      .to(this.DOM.revealInner, 0.6, {
-        ease: "Expo.easeOut",
-        scaleX: 0,
+      .to(this.DOM.revealInner, 1.8, {
+        ease: "Power3.easeOut",
+        scale: 0.3,
         opacity: 0,
       })
       .to(
         this.DOM.revealImage,
-        0.6,
+        1.8,
         {
-          ease: "Expo.easeOut",
-          scaleX: 2,
+          ease: "Power3.easeOut",
+          scale: 1.7,
         },
         0
       );
@@ -186,14 +186,14 @@ export default class MenuItem {
       Math.abs(mousepos.x - this.bounds.el.left) - this.bounds.reveal.width / 2;
     this.animatableProperties.ty.current =
       Math.abs(mousepos.y - this.bounds.el.top) - this.bounds.reveal.height / 2;
-    // new skew value
-    this.animatableProperties.skew.current = this.firstRAFCycle
+    // new rotation value
+    this.animatableProperties.rotation.current = this.firstRAFCycle
       ? 0
-      : map(mouseDistanceX, 0, 80, 0, direction.x < 0 ? 60 : -60);
+      : map(mouseDistanceX, 0, 200, 0, direction.x < 0 ? 60 : -60);
     // new filter value
-    this.animatableProperties.contrast.current = this.firstRAFCycle
+    this.animatableProperties.brightness.current = this.firstRAFCycle
       ? 1
-      : map(mouseDistanceX, 0, 100, 1, 10);
+      : map(mouseDistanceX, 0, 100, 1, 3);
 
     // set up the interpolated values
     // for the first cycle, both the interpolated values need to be the same so there's no "lerped" animation between the previous and current state
@@ -211,28 +211,27 @@ export default class MenuItem {
           this.animatableProperties.ty.current,
           this.animatableProperties.ty.amt
         );
-    this.animatableProperties.skew.previous = this.firstRAFCycle
-      ? this.animatableProperties.skew.current
+    this.animatableProperties.rotation.previous = this.firstRAFCycle
+      ? this.animatableProperties.rotation.current
       : lerp(
-          this.animatableProperties.skew.previous,
-          this.animatableProperties.skew.current,
-          this.animatableProperties.skew.amt
+          this.animatableProperties.rotation.previous,
+          this.animatableProperties.rotation.current,
+          this.animatableProperties.rotation.amt
         );
-    this.animatableProperties.contrast.previous = this.firstRAFCycle
-      ? this.animatableProperties.contrast.current
+    this.animatableProperties.brightness.previous = this.firstRAFCycle
+      ? this.animatableProperties.brightness.current
       : lerp(
-          this.animatableProperties.contrast.previous,
-          this.animatableProperties.contrast.current,
-          this.animatableProperties.contrast.amt
+          this.animatableProperties.brightness.previous,
+          this.animatableProperties.brightness.current,
+          this.animatableProperties.brightness.amt
         );
 
     // set styles
     gsap.set(this.DOM.reveal, {
       x: this.animatableProperties.tx.previous,
       y: this.animatableProperties.ty.previous,
-      skewX: this.animatableProperties.skew.previous,
-      skewY: this.animatableProperties.skew.previous / 10,
-      filter: `contrast(${this.animatableProperties.contrast.previous})`,
+      rotation: this.animatableProperties.rotation.previous,
+      filter: `brightness(${this.animatableProperties.brightness.previous})`,
     });
 
     // loop

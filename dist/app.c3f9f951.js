@@ -9404,7 +9404,7 @@ exports.default = exports.gsap = gsapWithCSS;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.map = exports.lerp = exports.getRandomFloat = exports.getMousePos = exports.clamp = void 0;
+exports.preloadImages = exports.map = exports.lerp = exports.getRandomFloat = exports.getMousePos = exports.clamp = void 0;
 
 // Map number x from range [a, b] to [c, d]
 var map = function map(x, a, b, c, d) {
@@ -9454,22 +9454,48 @@ var getRandomFloat = function getRandomFloat(min, max) {
 };
 
 exports.getRandomFloat = getRandomFloat;
-},{}],"images/1.jpg":[function(require,module,exports) {
+
+var imagesLoaded = require("imagesloaded"); // Preload images
+
+
+var preloadImages = function preloadImages() {
+  var selector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "img";
+  return new Promise(function (resolve) {
+    imagesLoaded(document.querySelectorAll(selector), {
+      background: true
+    }, resolve);
+  });
+};
+
+exports.preloadImages = preloadImages;
+},{"imagesloaded":"node_modules/imagesloaded/imagesloaded.js"}],"images/1.jpg":[function(require,module,exports) {
 module.exports = "/1.106c6bd6.jpg";
-},{}],"images/4.jpg":[function(require,module,exports) {
-module.exports = "/4.d8cb7558.jpg";
 },{}],"images/2.jpg":[function(require,module,exports) {
 module.exports = "/2.adddeb7c.jpg";
 },{}],"images/3.jpg":[function(require,module,exports) {
 module.exports = "/3.993a564c.jpg";
+},{}],"images/4.jpg":[function(require,module,exports) {
+module.exports = "/4.d8cb7558.jpg";
 },{}],"images/5.jpg":[function(require,module,exports) {
 module.exports = "/5.044aff48.jpg";
+},{}],"images/about.jpg":[function(require,module,exports) {
+module.exports = "/about.32a5dd7a.jpg";
 },{}],"images/6.jpg":[function(require,module,exports) {
 module.exports = "/6.9baee97f.jpg";
 },{}],"images/dis.jpg":[function(require,module,exports) {
 module.exports = "/dis.28baf3e0.jpg";
 },{}],"images/disp.jpg":[function(require,module,exports) {
 module.exports = "/disp.66b76dc3.jpg";
+},{}],"images/w-1.jpg":[function(require,module,exports) {
+module.exports = "/w-1.c6ae6649.jpg";
+},{}],"images/w-2.jpg":[function(require,module,exports) {
+module.exports = "/w-2.80a0d500.jpg";
+},{}],"images/w-3.jpg":[function(require,module,exports) {
+module.exports = "/w-3.0689c2f2.jpg";
+},{}],"images/w-4.jpg":[function(require,module,exports) {
+module.exports = "/w-4.3e4258a6.jpg";
+},{}],"images/w-5.jpg":[function(require,module,exports) {
+module.exports = "/w-5.792f22d9.jpg";
 },{}],"images/*.jpg":[function(require,module,exports) {
 module.exports = {
   "1": require("./1.jpg"),
@@ -9478,10 +9504,16 @@ module.exports = {
   "4": require("./4.jpg"),
   "5": require("./5.jpg"),
   "6": require("./6.jpg"),
+  "about": require("./about.jpg"),
   "dis": require("./dis.jpg"),
-  "disp": require("./disp.jpg")
+  "disp": require("./disp.jpg"),
+  "w-1": require("./w-1.jpg"),
+  "w-2": require("./w-2.jpg"),
+  "w-3": require("./w-3.jpg"),
+  "w-4": require("./w-4.jpg"),
+  "w-5": require("./w-5.jpg")
 };
-},{"./1.jpg":"images/1.jpg","./4.jpg":"images/4.jpg","./2.jpg":"images/2.jpg","./3.jpg":"images/3.jpg","./5.jpg":"images/5.jpg","./6.jpg":"images/6.jpg","./dis.jpg":"images/dis.jpg","./disp.jpg":"images/disp.jpg"}],"js/webgl/menuItem.js":[function(require,module,exports) {
+},{"./1.jpg":"images/1.jpg","./2.jpg":"images/2.jpg","./3.jpg":"images/3.jpg","./4.jpg":"images/4.jpg","./5.jpg":"images/5.jpg","./about.jpg":"images/about.jpg","./6.jpg":"images/6.jpg","./dis.jpg":"images/dis.jpg","./disp.jpg":"images/disp.jpg","./w-1.jpg":"images/w-1.jpg","./w-2.jpg":"images/w-2.jpg","./w-3.jpg":"images/w-3.jpg","./w-4.jpg":"images/w-4.jpg","./w-5.jpg":"images/w-5.jpg"}],"js/webgl/menuItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9547,9 +9579,10 @@ var MenuItem = /*#__PURE__*/function () {
   _createClass(MenuItem, [{
     key: "layout",
     value: function layout() {
-      // this is the element that gets its position animated (and perhaps other properties like the skew etc..)
+      // this is the element that gets its position animated (and perhaps other properties like the rotation etc..)
       this.DOM.reveal = document.createElement("div");
-      this.DOM.reveal.className = "hover-reveal"; // the next two elements could actually be only one, the image element
+      this.DOM.reveal.className = "hover-reveal";
+      this.DOM.reveal.style.transformOrigin = "0% 0%"; // the next two elements could actually be only one, the image element
       // adding an extra wrapper (revealInner) around the image element with overflow hidden, gives us the possibility to scale the image inside
 
       this.DOM.revealInner = document.createElement("div");
@@ -9617,21 +9650,19 @@ var MenuItem = /*#__PURE__*/function () {
           });
         }
       }) // animate the image wrap
-      .to(this.DOM.revealInner, 0.8, {
+      .to(this.DOM.revealInner, 1.2, {
         ease: "Expo.easeOut",
         startAt: {
-          scaleX: 0,
-          filter: "contrast(10)"
+          scale: 0.3
         },
-        scaleX: 1,
-        filter: "contrast(1)"
+        scale: 1
       }) // animate the image element
       .to(this.DOM.revealImage, 1.2, {
         ease: "Expo.easeOut",
         startAt: {
-          scaleX: 2
+          scale: 1.7
         },
-        scaleX: 1
+        scale: 1
       }, 0);
     } // hide the image element
 
@@ -9656,13 +9687,13 @@ var MenuItem = /*#__PURE__*/function () {
             opacity: 0
           });
         }
-      }).to(this.DOM.revealInner, 0.6, {
-        ease: "Expo.easeOut",
-        scaleX: 0,
+      }).to(this.DOM.revealInner, 1.8, {
+        ease: "Power3.easeOut",
+        scale: 0.3,
         opacity: 0
-      }).to(this.DOM.revealImage, 0.6, {
-        ease: "Expo.easeOut",
-        scaleX: 2
+      }).to(this.DOM.revealImage, 1.8, {
+        ease: "Power3.easeOut",
+        scale: 1.7
       }, 0);
     } // start the render loop animation (rAF)
 
@@ -9711,24 +9742,23 @@ var MenuItem = /*#__PURE__*/function () {
       }; // new translation values
 
       this.animatableProperties.tx.current = Math.abs(mousepos.x - this.bounds.el.left) - this.bounds.reveal.width / 2;
-      this.animatableProperties.ty.current = Math.abs(mousepos.y - this.bounds.el.top) - this.bounds.reveal.height / 2; // new skew value
+      this.animatableProperties.ty.current = Math.abs(mousepos.y - this.bounds.el.top) - this.bounds.reveal.height / 2; // new rotation value
 
-      this.animatableProperties.skew.current = this.firstRAFCycle ? 0 : (0, _utils.map)(mouseDistanceX, 0, 80, 0, direction.x < 0 ? 60 : -60); // new filter value
+      this.animatableProperties.rotation.current = this.firstRAFCycle ? 0 : (0, _utils.map)(mouseDistanceX, 0, 200, 0, direction.x < 0 ? 60 : -60); // new filter value
 
-      this.animatableProperties.contrast.current = this.firstRAFCycle ? 1 : (0, _utils.map)(mouseDistanceX, 0, 100, 1, 10); // set up the interpolated values
+      this.animatableProperties.brightness.current = this.firstRAFCycle ? 1 : (0, _utils.map)(mouseDistanceX, 0, 100, 1, 3); // set up the interpolated values
       // for the first cycle, both the interpolated values need to be the same so there's no "lerped" animation between the previous and current state
 
       this.animatableProperties.tx.previous = this.firstRAFCycle ? this.animatableProperties.tx.current : (0, _utils.lerp)(this.animatableProperties.tx.previous, this.animatableProperties.tx.current, this.animatableProperties.tx.amt);
       this.animatableProperties.ty.previous = this.firstRAFCycle ? this.animatableProperties.ty.current : (0, _utils.lerp)(this.animatableProperties.ty.previous, this.animatableProperties.ty.current, this.animatableProperties.ty.amt);
-      this.animatableProperties.skew.previous = this.firstRAFCycle ? this.animatableProperties.skew.current : (0, _utils.lerp)(this.animatableProperties.skew.previous, this.animatableProperties.skew.current, this.animatableProperties.skew.amt);
-      this.animatableProperties.contrast.previous = this.firstRAFCycle ? this.animatableProperties.contrast.current : (0, _utils.lerp)(this.animatableProperties.contrast.previous, this.animatableProperties.contrast.current, this.animatableProperties.contrast.amt); // set styles
+      this.animatableProperties.rotation.previous = this.firstRAFCycle ? this.animatableProperties.rotation.current : (0, _utils.lerp)(this.animatableProperties.rotation.previous, this.animatableProperties.rotation.current, this.animatableProperties.rotation.amt);
+      this.animatableProperties.brightness.previous = this.firstRAFCycle ? this.animatableProperties.brightness.current : (0, _utils.lerp)(this.animatableProperties.brightness.previous, this.animatableProperties.brightness.current, this.animatableProperties.brightness.amt); // set styles
 
       _gsap.gsap.set(this.DOM.reveal, {
         x: this.animatableProperties.tx.previous,
         y: this.animatableProperties.ty.previous,
-        skewX: this.animatableProperties.skew.previous,
-        skewY: this.animatableProperties.skew.previous / 10,
-        filter: "contrast(".concat(this.animatableProperties.contrast.previous, ")")
+        rotation: this.animatableProperties.rotation.previous,
+        filter: "brightness(".concat(this.animatableProperties.brightness.previous, ")")
       }); // loop
 
 
@@ -9803,14 +9833,14 @@ var Menu = /*#__PURE__*/function () {
         current: 0,
         amt: 0.08
       },
-      // skew value
-      skew: {
+      // Rotation angle
+      rotation: {
         previous: 0,
         current: 0,
         amt: 0.04
       },
-      // CSS filter (contrast) value
-      contrast: {
+      // CSS filter (brightness) value
+      brightness: {
         previous: 1,
         current: 1,
         amt: 0.08
@@ -9870,16 +9900,10 @@ var scroll__container = document.getElementById("scroll__container"); // preload
 
 (0, _perloader.preloader)("img").then(function () {
   // initialize the smooth scroll
-  // using ajax page transition
-  window.addEventListener("load", function () {
-    setTimeout(function () {
-      document.body.classList.remove("loading");
-      document.body.classList.add("loaded");
-    }, 2000);
-  });
+  document.body.classList.add("loaded"); // using ajax page transition
 
   if (document.body.classList.contains("loaded")) {
-    var _scroller = new _locomotiveScroll.default({
+    var scroller = new _locomotiveScroll.default({
       el: scroll__container,
       //scroll element (scroll container)
       smooth: true,
@@ -9897,26 +9921,41 @@ var scroll__container = document.getElementById("scroll__container"); // preload
 
       }
     });
-
     window.addEventListener("load", function () {
-      _scroller.destroy();
-
-      _scroller.init();
-
-      _scroller.on("scroll", function (instance) {
+      scroller.destroy();
+      scroller.init();
+      scroller.on("scroll", function (instance) {
         document.getElementById("nav").setAttribute("data-direction", instance.direction);
+      }); //scroller top
+
+      var main = document.getElementById("main");
+      document.querySelector(".btn_one").addEventListener("click", function () {
+        scroller.scrollTo(main);
       });
     });
-  } //scroller top
+  } // initialize menu
 
-
-  var main = document.getElementById("main");
-  document.querySelector(".btn_one").addEventListener("click", function () {
-    scroller.scrollTo(main);
-  }); // initialize menu
 
   new _menu.default(menuEl);
-});
+}); // page transition using loop and gsap
+
+var anchors = document.querySelectorAll(".transition__btn");
+
+for (var i = 0; i < anchors.length; i++) {
+  var anchor = anchors[i];
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    var target = e.target;
+
+    if (target.nodeName === "SPAN") {
+      target = target.parentElement.href;
+    }
+
+    setTimeout(function () {
+      window.location.href = target;
+    }, 2500);
+  });
+}
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","./webgl/perloader":"js/webgl/perloader.js","./webgl/menu":"js/webgl/menu.js","gsap":"node_modules/gsap/index.js"}],"C:/Users/yash/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -9945,7 +9984,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62619" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58130" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
