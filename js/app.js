@@ -35,6 +35,17 @@ preloader("img").then(() => {
           .setAttribute("data-direction", instance.direction);
       });
 
+      // load animation
+      TweenMax.to(".overlay__main", 1, {
+        x: "-100%",
+        ease: Expo.easeInOut,
+      });
+      TweenMax.from("a", 1, {
+        opacity: 0,
+        delay: 0.4,
+        ease: Expo.easeInOut,
+      });
+
       //scroller top
       const main = document.getElementById("main");
 
@@ -63,8 +74,54 @@ for (let i = 0; i < anchors.length; i++) {
       target = target.parentElement.href;
     }
 
+    TweenMax.to("a", 1, {
+      opacity: 0,
+      y: 30,
+      ease: Expo.easeInOut,
+    });
+
+    TweenMax.to(".overlay__main", 1, {
+      delay: 0.3,
+      x: 0,
+      ease: Expo.easeInOut,
+    });
+
     setTimeout(() => {
       window.location.href = target;
     }, 2500);
   });
 }
+
+// print label
+
+console.log(`
+
+🅳🅴🆂🅸🅶🅽 🅰🅽🅳 🅲🆁🅰🅵🆃🅴🅳 🅱🆈:
+
+
+MMMMMMMM               MMMMMMMM                                                           iiii
+M:::::::M             M:::::::M                                                          i::::i
+M::::::::M           M::::::::M                                                           iiii
+M:::::::::M         M:::::::::M
+M::::::::::M       M::::::::::M  aaaaaaaaaaaaa     ggggggggg   ggggg   ggggggggg   gggggiiiiiii
+M:::::::::::M     M:::::::::::M  a::::::::::::a   g:::::::::ggg::::g  g:::::::::ggg::::gi:::::i
+M:::::::M::::M   M::::M:::::::M  aaaaaaaaa:::::a g:::::::::::::::::g g:::::::::::::::::g i::::i
+M::::::M M::::M M::::M M::::::M           a::::ag::::::ggggg::::::ggg::::::ggggg::::::gg i::::i
+M::::::M  M::::M::::M  M::::::M    aaaaaaa:::::ag:::::g     g:::::g g:::::g     g:::::g  i::::i
+M::::::M   M:::::::M   M::::::M  aa::::::::::::ag:::::g     g:::::g g:::::g     g:::::g  i::::i
+M::::::M    M:::::M    M::::::M a::::aaaa::::::ag:::::g     g:::::g g:::::g     g:::::g  i::::i
+M::::::M     MMMMM     M::::::Ma::::a    a:::::ag::::::g    g:::::g g::::::g    g:::::g  i::::i
+M::::::M               M::::::Ma::::a    a:::::ag:::::::ggggg:::::g g:::::::ggggg:::::g i::::::i
+M::::::M               M::::::Ma:::::aaaa::::::a g::::::::::::::::g  g::::::::::::::::g i::::::i
+M::::::M               M::::::M a::::::::::aa:::a gg::::::::::::::g   gg::::::::::::::g i::::::i
+MMMMMMMM               MMMMMMMM  aaaaaaaaaa  aaaa   gggggggg::::::g     gggggggg::::::g iiiiiiii
+                                                            g:::::g             g:::::g
+                                                gggggg      g:::::g gggggg      g:::::g
+                                                g:::::gg   gg:::::g g:::::gg   gg:::::g
+                                                 g::::::ggg:::::::g  g::::::ggg:::::::g
+                                                  gg:::::::::::::g    gg:::::::::::::g
+                                                    ggg::::::ggg        ggg::::::ggg
+                                                       gggggg              gggggg
+
+https://github.com/MAGGIx1404
+`);

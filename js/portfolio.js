@@ -27,25 +27,14 @@ window.addEventListener("load", function () {
   scroller.init();
   //   load animation
 
-  TweenMax.to(".overlay", 1, {
-    x: "-100%",
+  TweenMax.to(".overlay__main", 1, {
+    x: "100%",
     ease: Expo.easeInOut,
   });
-  TweenMax.staggerFrom(
-    ".nav__links a",
-    1,
-    {
-      delay: 0.2,
-      y: "-10",
-      opacity: 0,
-      ease: Expo.easeInOut,
-    },
-    0.05
-  );
-  TweenMax.from(".title", 1, {
-    delay: 0.4,
-    x: "-100",
+
+  TweenMax.from("h1 , a", 1, {
     opacity: 0,
+    delay: 0.4,
     ease: Expo.easeInOut,
   });
 
@@ -77,6 +66,23 @@ for (let i = 0; i < anchors.length; i++) {
     if (target.nodeName === "SPAN") {
       target = target.parentElement.href;
     }
+
+    TweenMax.to("a", 0.5, {
+      opacity: 0,
+      y: 30,
+      ease: Expo.easeInOut,
+    });
+
+    TweenMax.to("img", 0.5, {
+      y: "100%",
+      ease: Expo.easeInOut,
+    });
+
+    TweenMax.to(".overlay__main", 1, {
+      delay: 0.3,
+      x: 0,
+      ease: Expo.easeInOut,
+    });
 
     setTimeout(() => {
       window.location.href = target;

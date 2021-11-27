@@ -9478,24 +9478,20 @@ module.exports = "/3.993a564c.jpg";
 module.exports = "/4.d8cb7558.jpg";
 },{}],"images/5.jpg":[function(require,module,exports) {
 module.exports = "/5.044aff48.jpg";
-},{}],"images/about.jpg":[function(require,module,exports) {
-module.exports = "/about.32a5dd7a.jpg";
 },{}],"images/6.jpg":[function(require,module,exports) {
 module.exports = "/6.9baee97f.jpg";
+},{}],"images/about.jpg":[function(require,module,exports) {
+module.exports = "/about.32a5dd7a.jpg";
 },{}],"images/dis.jpg":[function(require,module,exports) {
 module.exports = "/dis.28baf3e0.jpg";
 },{}],"images/disp.jpg":[function(require,module,exports) {
 module.exports = "/disp.66b76dc3.jpg";
-},{}],"images/w-1.jpg":[function(require,module,exports) {
-module.exports = "/w-1.c6ae6649.jpg";
-},{}],"images/w-2.jpg":[function(require,module,exports) {
-module.exports = "/w-2.80a0d500.jpg";
-},{}],"images/w-3.jpg":[function(require,module,exports) {
-module.exports = "/w-3.0689c2f2.jpg";
-},{}],"images/w-4.jpg":[function(require,module,exports) {
-module.exports = "/w-4.3e4258a6.jpg";
-},{}],"images/w-5.jpg":[function(require,module,exports) {
-module.exports = "/w-5.792f22d9.jpg";
+},{}],"images/team1.jpg":[function(require,module,exports) {
+module.exports = "/team1.f7aa0c75.jpg";
+},{}],"images/team2.jpg":[function(require,module,exports) {
+module.exports = "/team2.397bf143.jpg";
+},{}],"images/team3.jpg":[function(require,module,exports) {
+module.exports = "/team3.e30d0f22.jpg";
 },{}],"images/*.jpg":[function(require,module,exports) {
 module.exports = {
   "1": require("./1.jpg"),
@@ -9507,13 +9503,11 @@ module.exports = {
   "about": require("./about.jpg"),
   "dis": require("./dis.jpg"),
   "disp": require("./disp.jpg"),
-  "w-1": require("./w-1.jpg"),
-  "w-2": require("./w-2.jpg"),
-  "w-3": require("./w-3.jpg"),
-  "w-4": require("./w-4.jpg"),
-  "w-5": require("./w-5.jpg")
+  "team1": require("./team1.jpg"),
+  "team2": require("./team2.jpg"),
+  "team3": require("./team3.jpg")
 };
-},{"./1.jpg":"images/1.jpg","./2.jpg":"images/2.jpg","./3.jpg":"images/3.jpg","./4.jpg":"images/4.jpg","./5.jpg":"images/5.jpg","./about.jpg":"images/about.jpg","./6.jpg":"images/6.jpg","./dis.jpg":"images/dis.jpg","./disp.jpg":"images/disp.jpg","./w-1.jpg":"images/w-1.jpg","./w-2.jpg":"images/w-2.jpg","./w-3.jpg":"images/w-3.jpg","./w-4.jpg":"images/w-4.jpg","./w-5.jpg":"images/w-5.jpg"}],"js/webgl/menuItem.js":[function(require,module,exports) {
+},{"./1.jpg":"images/1.jpg","./2.jpg":"images/2.jpg","./3.jpg":"images/3.jpg","./4.jpg":"images/4.jpg","./5.jpg":"images/5.jpg","./6.jpg":"images/6.jpg","./about.jpg":"images/about.jpg","./dis.jpg":"images/dis.jpg","./disp.jpg":"images/disp.jpg","./team1.jpg":"images/team1.jpg","./team2.jpg":"images/team2.jpg","./team3.jpg":"images/team3.jpg"}],"js/webgl/menuItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9926,7 +9920,19 @@ var scroll__container = document.getElementById("scroll__container"); // preload
       scroller.init();
       scroller.on("scroll", function (instance) {
         document.getElementById("nav").setAttribute("data-direction", instance.direction);
+      }); // load animation
+
+      _gsap.TweenMax.to(".overlay__main", 1, {
+        x: "-100%",
+        ease: _gsap.Expo.easeInOut
+      });
+
+      _gsap.TweenMax.from("a", 1, {
+        opacity: 0,
+        delay: 0.4,
+        ease: _gsap.Expo.easeInOut
       }); //scroller top
+
 
       var main = document.getElementById("main");
       document.querySelector(".btn_one").addEventListener("click", function () {
@@ -9951,11 +9957,26 @@ for (var i = 0; i < anchors.length; i++) {
       target = target.parentElement.href;
     }
 
+    _gsap.TweenMax.to("a", 1, {
+      opacity: 0,
+      y: 30,
+      ease: _gsap.Expo.easeInOut
+    });
+
+    _gsap.TweenMax.to(".overlay__main", 1, {
+      delay: 0.3,
+      x: 0,
+      ease: _gsap.Expo.easeInOut
+    });
+
     setTimeout(function () {
       window.location.href = target;
     }, 2500);
   });
-}
+} // print label
+
+
+console.log("\n\n\uD83C\uDD73\uD83C\uDD74\uD83C\uDD82\uD83C\uDD78\uD83C\uDD76\uD83C\uDD7D \uD83C\uDD70\uD83C\uDD7D\uD83C\uDD73 \uD83C\uDD72\uD83C\uDD81\uD83C\uDD70\uD83C\uDD75\uD83C\uDD83\uD83C\uDD74\uD83C\uDD73 \uD83C\uDD71\uD83C\uDD88:\n\n\nMMMMMMMM               MMMMMMMM                                                           iiii\nM:::::::M             M:::::::M                                                          i::::i\nM::::::::M           M::::::::M                                                           iiii\nM:::::::::M         M:::::::::M\nM::::::::::M       M::::::::::M  aaaaaaaaaaaaa     ggggggggg   ggggg   ggggggggg   gggggiiiiiii\nM:::::::::::M     M:::::::::::M  a::::::::::::a   g:::::::::ggg::::g  g:::::::::ggg::::gi:::::i\nM:::::::M::::M   M::::M:::::::M  aaaaaaaaa:::::a g:::::::::::::::::g g:::::::::::::::::g i::::i\nM::::::M M::::M M::::M M::::::M           a::::ag::::::ggggg::::::ggg::::::ggggg::::::gg i::::i\nM::::::M  M::::M::::M  M::::::M    aaaaaaa:::::ag:::::g     g:::::g g:::::g     g:::::g  i::::i\nM::::::M   M:::::::M   M::::::M  aa::::::::::::ag:::::g     g:::::g g:::::g     g:::::g  i::::i\nM::::::M    M:::::M    M::::::M a::::aaaa::::::ag:::::g     g:::::g g:::::g     g:::::g  i::::i\nM::::::M     MMMMM     M::::::Ma::::a    a:::::ag::::::g    g:::::g g::::::g    g:::::g  i::::i\nM::::::M               M::::::Ma::::a    a:::::ag:::::::ggggg:::::g g:::::::ggggg:::::g i::::::i\nM::::::M               M::::::Ma:::::aaaa::::::a g::::::::::::::::g  g::::::::::::::::g i::::::i\nM::::::M               M::::::M a::::::::::aa:::a gg::::::::::::::g   gg::::::::::::::g i::::::i\nMMMMMMMM               MMMMMMMM  aaaaaaaaaa  aaaa   gggggggg::::::g     gggggggg::::::g iiiiiiii\n                                                            g:::::g             g:::::g\n                                                gggggg      g:::::g gggggg      g:::::g\n                                                g:::::gg   gg:::::g g:::::gg   gg:::::g\n                                                 g::::::ggg:::::::g  g::::::ggg:::::::g\n                                                  gg:::::::::::::g    gg:::::::::::::g\n                                                    ggg::::::ggg        ggg::::::ggg\n                                                       gggggg              gggggg\n\nhttps://github.com/MAGGIx1404\n");
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","./webgl/perloader":"js/webgl/perloader.js","./webgl/menu":"js/webgl/menu.js","gsap":"node_modules/gsap/index.js"}],"C:/Users/yash/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -9984,7 +10005,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58130" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58183" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

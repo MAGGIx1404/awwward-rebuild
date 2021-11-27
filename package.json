@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@barba/core": "^2.9.7",
     "curtainsjs": "^8.1.3",
     "gsap": "^3.8.0",
     "imagesloaded": "^4.1.4",

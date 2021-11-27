@@ -499,14 +499,111 @@ footer .container a:hover::after {
   transform: scaleX(1);
 }
 
-a {
-  color: var(--white-color);
+/* overlay */
+
+.overlay__main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--black-color);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+:root {
+  --fontSize: 2rem;
+  --flexDirection: column;
 }
 
 body {
-  background-color: var(--light-dark-color);
-  color: var(--white-color);
+  background-color: var(--white-color);
+  color: var(--black-color);
 }
+
+nav {
+  background-color: var(--white-color) !important;
+}
+
+/* webgl */
+
+.banner {
+  width: 100%;
+  height: 100%;
+  padding: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.banner .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 70%;
+  height: fit-content;
+  margin-top: 5rem;
+}
+
+.banner h1 {
+  text-align: center;
+  font-size: var(--h5-font);
+  font-weight: 500;
+  font-family: var(--robo-font);
+  width: 50rem;
+}
+
+.banner .container a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+}
+
+.banner .container a:hover h6,
+.banner .container a:hover p {
+  color: var(--theme-color);
+}
+
+.banner .container a img {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 1rem;
+}
+
+.banner .container a h6 {
+  font-size: var(--a-font);
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: all 0.5s ease;
+}
+
+.banner .container a p {
+  font-weight: 400;
+  color: rgba(129, 129, 129, 0.7);
+  margin-top: 1rem;
+  transition: all 0.5s ease;
+}
+
+.banner h6.dev {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(129, 129, 129, 0.7);
+  font-size: 0.8rem;
+  word-spacing: 2px;
+}
+
+.banner h6.dev a {
+  color: var(--theme-color);
+}
+
+/* end */
 
 
 /*# sourceMappingURL=/contact.b15d9a0d.css.map */

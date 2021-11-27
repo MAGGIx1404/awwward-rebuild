@@ -18410,22 +18410,14 @@ window.addEventListener("load", function () {
   scroller.destroy();
   scroller.init(); //   load animation
 
-  _all.TweenMax.to(".overlay", 1, {
-    x: "-100%",
+  _all.TweenMax.to(".overlay__main", 1, {
+    x: "100%",
     ease: _all.Expo.easeInOut
   });
 
-  _all.TweenMax.staggerFrom(".nav__links a", 1, {
-    delay: 0.2,
-    y: "-10",
+  _all.TweenMax.from("h1 , a", 1, {
     opacity: 0,
-    ease: _all.Expo.easeInOut
-  }, 0.05);
-
-  _all.TweenMax.from(".title", 1, {
     delay: 0.4,
-    x: "-100",
-    opacity: 0,
     ease: _all.Expo.easeInOut
   });
 
@@ -18450,6 +18442,23 @@ for (var i = 0; i < anchors.length; i++) {
     if (target.nodeName === "SPAN") {
       target = target.parentElement.href;
     }
+
+    _all.TweenMax.to("a", 0.5, {
+      opacity: 0,
+      y: 30,
+      ease: _all.Expo.easeInOut
+    });
+
+    _all.TweenMax.to("img", 0.5, {
+      y: "100%",
+      ease: _all.Expo.easeInOut
+    });
+
+    _all.TweenMax.to(".overlay__main", 1, {
+      delay: 0.3,
+      x: 0,
+      ease: _all.Expo.easeInOut
+    });
 
     setTimeout(function () {
       window.location.href = target;
@@ -18575,7 +18584,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58130" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58183" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
