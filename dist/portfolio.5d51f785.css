@@ -511,6 +511,150 @@ footer .container a:hover::after {
   z-index: 1000;
 }
 
+/* hamb start */
+
+.hamb {
+  width: 4rem;
+  height: 4rem;
+  position: fixed;
+  top: 0.8rem;
+  right: 1rem;
+  z-index: 110;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  display: none;
+}
+
+.hamb div {
+  transition: all 0.5s ease;
+  width: 3rem;
+  height: 2px;
+  border-radius: 20px;
+  background-color: var(--white-color);
+}
+
+.hamb.active div:nth-of-type(1) {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.hamb.active div:nth-of-type(3) {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.hamb div:nth-of-type(2) {
+  border-radius: 0;
+}
+
+.hamb.active div:nth-of-type(2) {
+  height: 100%;
+  border-radius: 0;
+  background-color: var(--theme-color);
+}
+
+.hamb:hover div {
+  background-color: var(--theme-color);
+}
+
+.hamb__menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-color: var(--black-color);
+  transition: all 0.5s ease;
+  transform: translateX(100%);
+  padding: 3rem 2rem;
+}
+
+.hamb__menu.active {
+  transform: translateX(0);
+}
+
+.hamb__menu .hamb__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.hamb__menu .text__box {
+  width: 100%;
+  height: fit-content;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(129, 129, 129, 0.6);
+  position: relative;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.hamb__menu .text__box a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 2rem;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: var(--a-font);
+  opacity: 0;
+}
+
+.hamb__menu .text__box a:hover {
+  color: var(--theme-color);
+}
+
+.hamb__menu .text__box:nth-of-type(5) {
+  border-bottom: 1px solid rgba(129, 129, 129, 0.6);
+}
+
+.hamb__menu h6 {
+  font-size: (--p-font);
+  font-weight: 300;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hamb__menu h6 span a {
+  color: var(--theme-color);
+}
+/* hamb end */
+
+/* media querries */
+
+@media only screen and (max-width: 1200px) {
+  nav .nav__links {
+    display: none;
+  }
+  .hamb {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  footer .container {
+    flex-direction: column;
+  }
+  footer .container p {
+    margin: 1rem 0;
+  }
+  footer {
+    padding: 3rem 0;
+  }
+}
+
 body {
   color: var(--white-color);
   background-color: var(--light-dark-color);

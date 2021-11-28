@@ -9897,7 +9897,7 @@ var scroll__container = document.getElementById("scroll__container"); // preload
   document.body.classList.add("loaded"); // using ajax page transition
 
   if (document.body.classList.contains("loaded")) {
-    var scroller = new _locomotiveScroll.default({
+    var _scroller = new _locomotiveScroll.default({
       el: scroll__container,
       //scroll element (scroll container)
       smooth: true,
@@ -9915,12 +9915,16 @@ var scroll__container = document.getElementById("scroll__container"); // preload
 
       }
     });
+
     window.addEventListener("load", function () {
-      scroller.destroy();
-      scroller.init();
-      scroller.on("scroll", function (instance) {
+      _scroller.destroy();
+
+      _scroller.init();
+
+      _scroller.on("scroll", function (instance) {
         document.getElementById("nav").setAttribute("data-direction", instance.direction);
       }); // load animation
+
 
       _gsap.TweenMax.to(".overlay__main", 1, {
         x: "-100%",
@@ -9936,7 +9940,7 @@ var scroll__container = document.getElementById("scroll__container"); // preload
 
       var main = document.getElementById("main");
       document.querySelector(".btn_one").addEventListener("click", function () {
-        scroller.scrollTo(main);
+        _scroller.scrollTo(main);
       });
     });
   } // initialize menu
@@ -9973,8 +9977,56 @@ for (var i = 0; i < anchors.length; i++) {
       window.location.href = target;
     }, 2500);
   });
-} // print label
+} // hamb
 
+
+var menu__btn = document.querySelectorAll("menu__btn");
+var hamb__btn = document.querySelector(".hamb");
+var hamb__menu = document.querySelector(".hamb__menu");
+hamb__btn.addEventListener("click", function () {
+  if (hamb__menu.classList.contains("active")) {
+    outIn();
+    setTimeout(function () {
+      hamb__btn.classList.remove("active");
+      hamb__menu.classList.remove("active");
+    }, 1800);
+  } else {
+    hamb__menu.classList.add("active");
+    hamb__btn.classList.add("active");
+    inOut();
+  }
+});
+
+function inOut() {
+  _gsap.TweenMax.staggerTo(".menu__btn", 1, {
+    opacity: 1,
+    delay: 0.2,
+    ease: _gsap.Expo.easeInOut
+  }, 0.2);
+
+  _gsap.TweenMax.staggerTo(".webgl__box", 1, {
+    scaleX: "100%",
+    ease: _gsap.Expo.easeInOut
+  }, 0.2);
+}
+
+function outIn() {
+  _gsap.TweenMax.staggerTo(".menu__btn", 1, {
+    opacity: 0,
+    ease: _gsap.Expo.easeInOut
+  }, 0.2);
+
+  _gsap.TweenMax.staggerTo(".webgl__box", 1, {
+    delay: 0.2,
+    scaleX: "0%",
+    ease: _gsap.Expo.easeInOut
+  }, 0.2);
+} // window resize
+
+
+window.addEventListener("resize", function () {
+  scroller.update();
+}); // print label
 
 console.log("\n\n\uD83C\uDD73\uD83C\uDD74\uD83C\uDD82\uD83C\uDD78\uD83C\uDD76\uD83C\uDD7D \uD83C\uDD70\uD83C\uDD7D\uD83C\uDD73 \uD83C\uDD72\uD83C\uDD81\uD83C\uDD70\uD83C\uDD75\uD83C\uDD83\uD83C\uDD74\uD83C\uDD73 \uD83C\uDD71\uD83C\uDD88:\n\n\nMMMMMMMM               MMMMMMMM                                                           iiii\nM:::::::M             M:::::::M                                                          i::::i\nM::::::::M           M::::::::M                                                           iiii\nM:::::::::M         M:::::::::M\nM::::::::::M       M::::::::::M  aaaaaaaaaaaaa     ggggggggg   ggggg   ggggggggg   gggggiiiiiii\nM:::::::::::M     M:::::::::::M  a::::::::::::a   g:::::::::ggg::::g  g:::::::::ggg::::gi:::::i\nM:::::::M::::M   M::::M:::::::M  aaaaaaaaa:::::a g:::::::::::::::::g g:::::::::::::::::g i::::i\nM::::::M M::::M M::::M M::::::M           a::::ag::::::ggggg::::::ggg::::::ggggg::::::gg i::::i\nM::::::M  M::::M::::M  M::::::M    aaaaaaa:::::ag:::::g     g:::::g g:::::g     g:::::g  i::::i\nM::::::M   M:::::::M   M::::::M  aa::::::::::::ag:::::g     g:::::g g:::::g     g:::::g  i::::i\nM::::::M    M:::::M    M::::::M a::::aaaa::::::ag:::::g     g:::::g g:::::g     g:::::g  i::::i\nM::::::M     MMMMM     M::::::Ma::::a    a:::::ag::::::g    g:::::g g::::::g    g:::::g  i::::i\nM::::::M               M::::::Ma::::a    a:::::ag:::::::ggggg:::::g g:::::::ggggg:::::g i::::::i\nM::::::M               M::::::Ma:::::aaaa::::::a g::::::::::::::::g  g::::::::::::::::g i::::::i\nM::::::M               M::::::M a::::::::::aa:::a gg::::::::::::::g   gg::::::::::::::g i::::::i\nMMMMMMMM               MMMMMMMM  aaaaaaaaaa  aaaa   gggggggg::::::g     gggggggg::::::g iiiiiiii\n                                                            g:::::g             g:::::g\n                                                gggggg      g:::::g gggggg      g:::::g\n                                                g:::::gg   gg:::::g g:::::gg   gg:::::g\n                                                 g::::::ggg:::::::g  g::::::ggg:::::::g\n                                                  gg:::::::::::::g    gg:::::::::::::g\n                                                    ggg::::::ggg        ggg::::::ggg\n                                                       gggggg              gggggg\n\nhttps://github.com/MAGGIx1404\n");
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","./webgl/perloader":"js/webgl/perloader.js","./webgl/menu":"js/webgl/menu.js","gsap":"node_modules/gsap/index.js"}],"C:/Users/yash/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -10005,7 +10057,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58183" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53995" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -82,7 +82,7 @@ a {
   cursor: pointer;
   padding: 0.5rem;
   display: block;
-  overflow: hidden;
+  /* overflow: hidden; */
   font-size: 6vw;
 }
 
@@ -179,5 +179,70 @@ a {
   }
   .menu__item-sub {
     display: flex;
+  }
+}
+
+/* media qeurry */
+
+@media only screen and (max-width: 1200px) {
+  .menu__item {
+    padding: 5vh 5vw;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  :root {
+    --h2-font: 6rem;
+  }
+  .container {
+    max-width: 90%;
+  }
+  .hover-reveal {
+    width: 35rem;
+    height: 22rem;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .menu__item {
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .hover-reveal {
+    width: 24rem;
+    height: 14rem;
+  }
+  :root {
+    --h2-font: 4rem;
+  }
+  .menu__item {
+    padding: 5vh 3rem;
+  }
+  .menu__item-textinner {
+    letter-spacing: 1px;
+  }
+  .menu {
+    padding: 10rem 0 5rem 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  :root {
+    --h2-font: 3rem;
+  }
+  .menu__item {
+    padding: 1.5rem 2rem;
+  }
+  .hover-reveal {
+    width: 15rem;
+    height: 9rem;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  :root {
+    --h2-font: 2rem;
   }
 }
