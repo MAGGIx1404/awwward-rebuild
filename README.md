@@ -8,8 +8,8 @@ Run this followed commands:
 npm install
 
 # Run the local server at localhost:1234
-npm start
+npm run start
 
 # Build for production in the dist/ directory
-npm build
+npm run build
 ```
