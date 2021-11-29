@@ -18536,16 +18536,16 @@ module.exports = "/5.044aff48.jpg";
 module.exports = "/6.9baee97f.jpg";
 },{}],"images/about.jpg":[function(require,module,exports) {
 module.exports = "/about.32a5dd7a.jpg";
+},{}],"images/dis.jpg":[function(require,module,exports) {
+module.exports = "/dis.28baf3e0.jpg";
+},{}],"images/disp.jpg":[function(require,module,exports) {
+module.exports = "/disp.66b76dc3.jpg";
 },{}],"images/team1.jpg":[function(require,module,exports) {
 module.exports = "/team1.f7aa0c75.jpg";
 },{}],"images/team2.jpg":[function(require,module,exports) {
 module.exports = "/team2.397bf143.jpg";
 },{}],"images/team3.jpg":[function(require,module,exports) {
 module.exports = "/team3.e30d0f22.jpg";
-},{}],"images/dis.jpg":[function(require,module,exports) {
-module.exports = "/dis.28baf3e0.jpg";
-},{}],"images/disp.jpg":[function(require,module,exports) {
-module.exports = "/disp.66b76dc3.jpg";
 },{}],"images/*.jpg":[function(require,module,exports) {
 module.exports = {
   "1": require("./1.jpg"),
@@ -18555,13 +18555,13 @@ module.exports = {
   "5": require("./5.jpg"),
   "6": require("./6.jpg"),
   "about": require("./about.jpg"),
+  "dis": require("./dis.jpg"),
+  "disp": require("./disp.jpg"),
   "team1": require("./team1.jpg"),
   "team2": require("./team2.jpg"),
-  "team3": require("./team3.jpg"),
-  "dis": require("./dis.jpg"),
-  "disp": require("./disp.jpg")
+  "team3": require("./team3.jpg")
 };
-},{"./1.jpg":"images/1.jpg","./2.jpg":"images/2.jpg","./3.jpg":"images/3.jpg","./4.jpg":"images/4.jpg","./5.jpg":"images/5.jpg","./6.jpg":"images/6.jpg","./about.jpg":"images/about.jpg","./team1.jpg":"images/team1.jpg","./team2.jpg":"images/team2.jpg","./team3.jpg":"images/team3.jpg","./dis.jpg":"images/dis.jpg","./disp.jpg":"images/disp.jpg"}],"js/webgl/menuItem.js":[function(require,module,exports) {
+},{"./1.jpg":"images/1.jpg","./2.jpg":"images/2.jpg","./3.jpg":"images/3.jpg","./4.jpg":"images/4.jpg","./5.jpg":"images/5.jpg","./6.jpg":"images/6.jpg","./about.jpg":"images/about.jpg","./dis.jpg":"images/dis.jpg","./disp.jpg":"images/disp.jpg","./team1.jpg":"images/team1.jpg","./team2.jpg":"images/team2.jpg","./team3.jpg":"images/team3.jpg"}],"js/webgl/menuItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19104,7 +19104,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58763" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53674" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
