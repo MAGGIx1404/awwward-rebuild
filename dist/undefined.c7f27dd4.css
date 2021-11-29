@@ -303,6 +303,7 @@ html.has-scroll-dragging {
   margin: 2px;
   cursor: -webkit-grab;
   cursor: grab;
+  z-index: 200;
 }
 .has-scroll-dragging .c-scrollbar_thumb {
   cursor: -webkit-grabbing;
@@ -527,6 +528,7 @@ footer .container a:hover::after {
   justify-content: space-around;
   padding: 0.5rem 0;
   display: none;
+  mix-blend-mode: difference;
 }
 
 .hamb div {
@@ -655,6 +657,18 @@ footer .container a:hover::after {
   }
 }
 
+@media only screen and (max-width: 680px) {
+  .next__btn .container a {
+    font-size: var(--h5-font);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .next__btn {
+    min-height: 30vh;
+  }
+}
+
 nav {
   background-color: var(--white-color) !important;
 }
@@ -669,6 +683,12 @@ nav {
   font-size: var(--h4-font);
   font-weight: 600;
   font-family: var(--robo-font);
+}
+
+@media only screen and (max-width: 480px) {
+  .banner h1 {
+    font-size: 3rem;
+  }
 }
 
 

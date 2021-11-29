@@ -303,6 +303,7 @@ html.has-scroll-dragging {
   margin: 2px;
   cursor: -webkit-grab;
   cursor: grab;
+  z-index: 200;
 }
 .has-scroll-dragging .c-scrollbar_thumb {
   cursor: -webkit-grabbing;

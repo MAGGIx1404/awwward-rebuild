@@ -342,3 +342,108 @@ a {
   margin-top: 1.5rem;
   line-height: 2;
 }
+
+/* media querries */
+
+@media only screen and (max-width: 1350px) {
+  .container {
+    max-width: 1000px;
+  }
+  .banner .container p {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .container {
+    max-width: 800px;
+  }
+  .banner .container p {
+    width: 90%;
+  }
+  .photo .img__box {
+    width: 90vw;
+  }
+  :root {
+    --h5-font: 2rem;
+    --h4-font: 3rem;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .exe .container .list {
+    flex-direction: column;
+  }
+  .exe .container .list .qna {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    max-width: 90%;
+  }
+  .photo {
+    height: 80vh;
+  }
+  .photo .img__box {
+    width: 95vw;
+    height: fit-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .award .container .award-list .item {
+    padding: 1.4rem 1.5rem 1.4rem 0;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  :root {
+    --h3-font: 5rem;
+    --h6-font: 1.6rem;
+  }
+  .award .container .award-list {
+    flex-direction: column;
+  }
+  .award .container .award-list .item {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .banner .container p,
+  .exe .container h1,
+  .team .container h2,
+  .work .container h1 {
+    width: 100%;
+  }
+  .exe {
+    padding: 4rem 0;
+  }
+  .award {
+    padding: 4rem 0;
+  }
+  .award .container .award-list {
+    margin-top: 4rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .hover-reveal {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .banner .container p {
+    margin-top: 3rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  :root {
+    --h3-font: 3rem;
+    --h5-font: 1.6rem;
+  }
+}

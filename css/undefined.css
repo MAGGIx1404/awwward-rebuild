@@ -16,3 +16,9 @@ nav {
   font-weight: 600;
   font-family: var(--robo-font);
 }
+
+@media only screen and (max-width: 480px) {
+  .banner h1 {
+    font-size: 3rem;
+  }
+}

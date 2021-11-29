@@ -165,3 +165,49 @@ a {
   left: 0;
   background-color: var(--black-color);
 }
+
+/* media querries */
+
+@media only screen and (max-width: 1320px) {
+  .container {
+    max-width: 90%;
+  }
+  .portfolio .container {
+    max-width: 90%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .portfolio .container .work {
+    flex-direction: column;
+  }
+  .portfolio .container .work__pic,
+  .portfolio .container .work__content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  :root {
+    --h3-font: 4.5rem;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  :root {
+    --h3-font: 3.5rem;
+    --h5-font: 2rem;
+  }
+  .portfolio .container .work__pic .img__box img {
+    min-height: fit-content;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  :root {
+    --h3-font: 2.6rem;
+  }
+}

@@ -93,4 +93,69 @@ nav {
   color: var(--theme-color);
 }
 
+.hamb__menu,
+.hamb__menu a {
+  color: var(--white-color);
+}
+
 /* end */
+
+/* media querries */
+
+@media only screen and (max-width: 1320px) {
+  .banner {
+    padding: 20vh 5rem;
+    height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .banner .container {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .banner h1 {
+    width: 100%;
+  }
+  .banner {
+    padding: 20vh 2rem;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .banner .container {
+    flex-wrap: wrap;
+  }
+  .banner .container a {
+    flex: 0 0 40%;
+    max-width: 40%;
+    margin: 0.3rem 0;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  :root {
+    --h5-font: 2rem;
+  }
+  .banner {
+    height: fit-content;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .banner .container a {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  :root {
+    --h5-font: 1.7rem;
+  }
+  .banner {
+    padding: 8rem 1rem 4rem 1rem;
+  }
+}

@@ -303,6 +303,7 @@ html.has-scroll-dragging {
   margin: 2px;
   cursor: -webkit-grab;
   cursor: grab;
+  z-index: 200;
 }
 .has-scroll-dragging .c-scrollbar_thumb {
   cursor: -webkit-grabbing;
@@ -527,6 +528,7 @@ footer .container a:hover::after {
   justify-content: space-around;
   padding: 0.5rem 0;
   display: none;
+  mix-blend-mode: difference;
 }
 
 .hamb div {
@@ -652,6 +654,18 @@ footer .container a:hover::after {
   }
   footer {
     padding: 3rem 0;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .next__btn .container a {
+    font-size: var(--h5-font);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .next__btn {
+    min-height: 30vh;
   }
 }
 
@@ -818,6 +832,52 @@ a {
   top: 0;
   left: 0;
   background-color: var(--black-color);
+}
+
+/* media querries */
+
+@media only screen and (max-width: 1320px) {
+  .container {
+    max-width: 90%;
+  }
+  .portfolio .container {
+    max-width: 90%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .portfolio .container .work {
+    flex-direction: column;
+  }
+  .portfolio .container .work__pic,
+  .portfolio .container .work__content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  :root {
+    --h3-font: 4.5rem;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  :root {
+    --h3-font: 3.5rem;
+    --h5-font: 2rem;
+  }
+  .portfolio .container .work__pic .img__box img {
+    min-height: fit-content;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  :root {
+    --h3-font: 2.6rem;
+  }
 }
 
 

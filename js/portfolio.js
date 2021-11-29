@@ -63,7 +63,7 @@ for (let i = 0; i < anchors.length; i++) {
     e.preventDefault();
     let target = e.target;
 
-    if (target.nodeName === "SPAN") {
+    if (target.nodeName === "H1") {
       target = target.parentElement.href;
     }
 

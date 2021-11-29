@@ -194,6 +194,7 @@ footer .container a:hover::after {
   justify-content: space-around;
   padding: 0.5rem 0;
   display: none;
+  mix-blend-mode: difference;
 }
 
 .hamb div {
@@ -319,5 +320,17 @@ footer .container a:hover::after {
   }
   footer {
     padding: 3rem 0;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .next__btn .container a {
+    font-size: var(--h5-font);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .next__btn {
+    min-height: 30vh;
   }
 }
