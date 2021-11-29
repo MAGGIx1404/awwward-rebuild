@@ -8,7 +8,7 @@
     "start": "parcel index.html",
     "build": "parcel build index.html --no-minify"
   },
-  "author": "",
+  "author": "MAGGIx1404",
   "license": "ISC",
   "dependencies": {
     "@barba/core": "^2.9.7",
