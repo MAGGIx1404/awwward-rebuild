@@ -1,9 +1,10 @@
-# awwward-rebuild
-Awwward website rebuild. full webpages with page transition, text reveal animation, webgl effect and many more.
+# Awwward-rebuild
 
-Run this followed commands:
+Awwward website rebuild. Full webpages with page transitions, text reveal animations, webgl effects and many more.
 
-``` bash
+Run locally by using this commands
+
+```bash
 # Install dependencies (only the first time)
 npm install
 
